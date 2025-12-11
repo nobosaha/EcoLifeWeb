@@ -1,9 +1,70 @@
-/* ===========================
-   EcoLife Adventure — Logic
-   Clean, minimal, well commented
-   =========================== */
+/* ==========================================
+   EcoLife Adventure — Script (Full)
+   Includes Quiz + Challenges + Pledges + Carbon Calculator
+========================================== */
 
-/* ---------- Quiz data ---------- */
+/* ------------------------------
+   CARBON CALCULATOR SECTION
+------------------------------ */
+
+document.getElementById("calc-btn").addEventListener("click", () => {
+  
+  const e = parseFloat(document.getElementById("electricity").value) || 0;
+  const l = parseFloat(document.getElementById("lpg").value) || 0;
+  const w = parseFloat(document.getElementById("water").value) || 0;
+  const g = parseFloat(document.getElementById("waste").value) || 0;
+  const t = parseFloat(document.getElementById("transport").value);
+  const f = parseFloat(document.getElementById("food").value);
+
+  // Emission factors (standard)
+  const electricityEF = 0.82;     // kg CO2 per kWh (BD value)
+  const lpgEF = 3.0;              // per kg
+  const waterEF = 0.0003;         // per liter
+  const wasteEF = 1.2;            // per kg
+  const transportEF = t;          // selected from dropdown
+  const foodEF = f;               // selected from dropdown
+
+  // Calculate
+  const electricityCO2 = e * electricityEF;
+  const lpgCO2 = l * lpgEF;
+  const waterCO2 = w * waterEF;
+  const wasteCO2 = g * wasteEF;
+  const transportCO2 = transportEF;
+  const foodCO2 = foodEF;
+
+  const total = electricityCO2 + lpgCO2 + waterCO2 + wasteCO2 + transportCO2 + foodCO2;
+
+  const resultBox = document.getElementById("calc-result");
+
+  resultBox.innerHTML = `
+    <h3 style="color:var(--neon)">Daily Carbon Footprint</h3>
+    <p><strong>${total.toFixed(2)} kg CO₂e / day</strong></p>
+
+    <h4 style="margin-top:10px;color:#bdeccf">Breakdown</h4>
+    <ul>
+      <li>Electricity: ${electricityCO2.toFixed(2)}</li>
+      <li>LPG: ${lpgCO2.toFixed(2)}</li>
+      <li>Water: ${waterCO2.toFixed(3)}</li>
+      <li>Waste: ${wasteCO2.toFixed(2)}</li>
+      <li>Transport: ${transportCO2.toFixed(2)}</li>
+      <li>Food: ${foodCO2.toFixed(2)}</li>
+    </ul>
+
+    <h4 style="margin-top:10px;color:#bdeccf">Suggestions</h4>
+    <ul>
+      <li>Reduce electricity by switching off unused appliances.</li>
+      <li>Shorter showers reduce water emissions.</li>
+      <li>Walk or cycle for short distances.</li>
+      <li>Choose more plant-based meals.</li>
+      <li>Try to generate less waste — reuse and recycle.</li>
+    </ul>
+  `;
+});
+
+/* ------------------------------
+   QUIZ (unchanged)
+------------------------------ */
+
 const questions = [
   {
     q: "How many single-use plastics did you avoid today?",
@@ -32,7 +93,7 @@ const questions = [
     ]
   },
   {
-    q: "Did you practice eco-friendly consumption today (repair/reuse/thrift)?",
+    q: "Did you practice eco-friendly consumption today?",
     options: [
       { text: "Not today", value: 0 },
       { text: "A little", value: 10 },
@@ -40,7 +101,7 @@ const questions = [
     ]
   },
   {
-    q: "Did you reduce electricity usage by turning off unused devices?",
+    q: "Did you reduce electricity use today?",
     options: [
       { text: "No", value: 0 },
       { text: "A bit", value: 10 },
@@ -49,28 +110,23 @@ const questions = [
   }
 ];
 
-/* ---------- State ---------- */
 let current = 0;
 let totalScore = 0;
 
-/* ---------- DOM refs ---------- */
 const questionArea = document.getElementById("question-area");
 const nextBtn = document.getElementById("next-btn");
 const progressEl = document.getElementById("progress");
 const scoreText = document.getElementById("score");
 
-/* ---------- Start button workaround (from hero) ---------- */
 document.querySelectorAll('a[href="#quiz"]').forEach(el=>{
-  el.addEventListener("click", (e)=>{
+  el.addEventListener("click", () => {
     setTimeout(()=> {
-      // ensure start button visible if needed
       nextBtn.style.display = "inline-block";
       nextBtn.textContent = "Start";
     }, 300);
   });
 });
 
-/* ---------- Next / Start ---------- */
 nextBtn.addEventListener("click", () => {
   if (nextBtn.textContent === "Start") {
     loadQuestion();
@@ -78,63 +134,39 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
-/* ---------- Load a question ---------- */
 function loadQuestion() {
-  if (current >= questions.length) {
-    finishQuiz();
-    return;
-  }
+  if (current >= questions.length) return finishQuiz();
 
   const q = questions[current];
   questionArea.innerHTML = `
     <div class="card">
-      <h3 style="color:var(--neon)">${escapeHTML(q.q)}</h3>
+      <h3 style="color:var(--neon)">${q.q}</h3>
       <div class="options">
-        ${q.options.map(o=>`<div class="option" data-val="${o.value}">${escapeHTML(o.text)}</div>`).join("")}
+        ${q.options.map(o=>`<div class="option" data-val="${o.value}">${o.text}</div>`).join("")}
       </div>
     </div>
   `;
 
-  // attach click handlers
   document.querySelectorAll(".option").forEach(opt=>{
     opt.addEventListener("click", () => {
-      const val = Number(opt.getAttribute("data-val"));
-      chooseOption(val);
+      totalScore += Number(opt.getAttribute("data-val"));
+      current++;
+      loadQuestion();
     });
   });
 }
 
-/* ---------- When option chosen ---------- */
-function chooseOption(value){
-  totalScore += value;
-  current++;
-  loadQuestion();
-}
-
-/* ---------- Finish ---------- */
 function finishQuiz(){
-  const maxPossible = questions.reduce((s,q)=> s + Math.max(...q.options.map(o=>o.value)), 0);
-  const percent = Math.min(Math.round((totalScore / maxPossible) * 100), 100);
+  const max = questions.reduce((s,q)=> s + Math.max(...q.options.map(o=>o.value)), 0);
+  const percent = Math.round((totalScore / max) * 100);
 
   questionArea.innerHTML = `
     <div style="text-align:center">
-      <h2 style="color:var(--neon)">🎉 Journey Complete!</h2>
-      <p>Your Eco Score</p>
-      <div style="margin-top:12px">
-        <div class="progress" style="width:320px"><div id="final-progress" style="height:12px;border-radius:999px;background:linear-gradient(90deg,var(--neon),#00d2ff);width:0%;transition:width .8s ease"></div></div>
-      </div>
-      <h3 style="margin-top:12px;color:#bdeccf">${percent}%</h3>
-      <p style="color:#9fbfb1">Tip: small changes add up — try a micro-challenge below.</p>
+      <h2 style="color:var(--neon)">Journey Complete!</h2>
+      <p>Your Eco Score is ${percent}%</p>
     </div>
   `;
 
-  // animate final progress
-  setTimeout(()=> {
-    const final = document.getElementById("final-progress");
-    if(final) final.style.width = percent + "%";
-  }, 50);
-
-  // update top progress bar
   progressEl.style.width = percent + "%";
   scoreText.textContent = percent + "%";
 
@@ -143,17 +175,20 @@ function finishQuiz(){
   nextBtn.onclick = () => location.reload();
 }
 
-/* ---------- Utility: escape text ---------- */
-function escapeHTML(str){
-  return String(str).replace(/[&<>"']/g, (m)=> ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m]);
-}
+window.addEventListener("load", ()=>{
+  nextBtn.style.display = "inline-block";
+  nextBtn.textContent = "Start";
+});
 
-/* ---------- Activities: challenge + pledge ---------- */
+/* ------------------------------
+   ACTIVITIES + PLEDGES
+------------------------------ */
+
 const challenges = [
-  "Skip one single-use plastic item today.",
-  "Walk or cycle for short trips instead of driving.",
-  "Unplug unused chargers for 1 hour.",
-  "Have a plant-based meal today.",
+  "Skip one single-use plastic today.",
+  "Walk instead of short car trips.",
+  "Unplug chargers for 1 hour.",
+  "Have a plant-based meal.",
   "Shorten one shower by 1 minute."
 ];
 
@@ -162,10 +197,9 @@ document.getElementById("generate-challenge").addEventListener("click", ()=>{
   document.getElementById("challenge-output").textContent = "➤ " + pick;
 });
 
-/* pledge handling */
 document.getElementById("pledge-btn").addEventListener("click", ()=>{
   const val = document.getElementById("pledge-input").value.trim();
-  if(!val) { alert("Please write a short pledge."); return; }
+  if(!val) return alert("Write a pledge first.");
   const node = document.createElement("div");
   node.textContent = "• " + val;
   node.style.marginTop = "8px";
@@ -173,10 +207,4 @@ document.getElementById("pledge-btn").addEventListener("click", ()=>{
   document.getElementById("pledge-input").value = "";
 });
 
-/* ---------- Initial state: ensure Start button visible on load ---------- */
-window.addEventListener("load", ()=>{
-  // keep next button available but labeled Start
-  nextBtn.style.display = "inline-block";
-  nextBtn.textContent = "Start";
-});
 
