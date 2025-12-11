@@ -1,85 +1,36 @@
-/* -------------------------
-   EcoLife Adventure — Styles
-   Neon green theme, patterned dark background
-   ------------------------- */
+/* Existing styles unchanged above */
 
-/* BASE + PATTERNED BACKGROUND (Option C) */
-:root{
-  --bg-dark: #06080a;
-  --panel: rgba(255,255,255,0.02);
-  --neon: #39ff7a;
-  --accent: rgba(57,255,122,0.08);
-  --muted: #9fb3b0;
-  --glass: rgba(255,255,255,0.03);
-  --card-radius: 12px;
+/* ---------------------
+   Carbon Calculator
+---------------------- */
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;font-family:Inter, ui-sans-serif, system-ui, -apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg-dark);color:#e6f9f0}
-
-/* subtle patterned background: repeating radial dots */
-body{
-  background-image:
-    radial-gradient(circle at 10% 10%, rgba(57,255,122,0.02) 0.5px, transparent 0.6px),
-    radial-gradient(circle at 30% 70%, rgba(57,255,122,0.015) 0.5px, transparent 0.6px),
-    linear-gradient(180deg, rgba(5,8,12,1) 0%, rgba(8,12,20,1) 100%);
-  background-size: 6px 6px, 8px 8px, auto;
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+.calc-item label {
+  display: block;
+  margin-bottom: 6px;
+  color: #c8ffe0;
 }
 
-/* NAV */
-.nav{position:fixed;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:center;z-index:40;padding:8px 16px}
-.brand{font-weight:700;color:var(--neon);letter-spacing:0.6px}
-.nav-links a{color:var(--muted);margin-left:14px;text-decoration:none;font-size:0.95rem;transition:color .18s}
-.nav-links a:hover{color:var(--neon);transform:translateY(-2px)}
-
-/* HERO */
-.hero{height:52vh;min-height:360px;display:flex;align-items:center;justify-content:center;position:relative;padding:28px}
-.hero-inner{text-align:center;z-index:2;max-width:980px}
-.hero h1{font-size:clamp(28px,4.2vw,48px);color:var(--neon);text-shadow:0 6px 30px rgba(0,0,0,0.6)}
-.lead{color:#bfeedf;margin-top:10px;margin-bottom:18px;font-size:1.05rem}
-.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-/* BUTTONS */
-.btn{border-radius:10px;padding:10px 16px;font-weight:600;border:none;cursor:pointer}
-.btn.primary{background:linear-gradient(90deg,var(--neon),#0fffb0);color:#021104;border:1px solid var(--accent);box-shadow:0 8px 28px rgba(57,255,122,0.05)}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:#dff6e8}
-a.btn{display:inline-block;text-decoration:none}
-
-/* MAIN LAYOUT */
-.main{max-width:1100px;margin:22px auto;padding:10px}
-.section{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--card-radius);border:1px solid rgba(255,255,255,0.03);padding:20px;margin:18px 12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-.section h2{color:#c8ffe0;margin-bottom:10px}
-
-/* SDG GRID */
-.sdg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px}
-.sdg{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.16), rgba(0,0,0,0.08));border:1px solid rgba(57,255,122,0.03)}
-.sdg-badge{width:44px;height:44px;border-radius:8px;background:linear-gradient(90deg,var(--neon),#0fffb0);color:#021104;display:inline-flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:8px}
-
-/* QUIZ */
-#question-area .card{padding:14px;background:transparent;border-radius:10px}
-.option{padding:12px;border-radius:10px;margin:8px 0;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));cursor:pointer;color:var(--muted)}
-.option:hover{transform:translateX(6px);color:white;transition:0.18s}
-.quiz-footer{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:18px;justify-content:center}
-.score-box{display:flex;align-items:center;gap:12px}
-.progress{width:260px;height:12px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
-#progress{width:0;height:100%;background:linear-gradient(90deg,var(--neon),#00d2ff);transition:width .6s cubic-bezier(.2,.8,.2,1)}
-
-/* PLAY CARDS */
-.play-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
-.play-card{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.06));border:1px solid rgba(255,255,255,0.02)}
-.muted{color:#9fbfb2;margin-top:10px}
-
-/* pledge inputs */
-input#pledge-input{width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:#dff6ea;margin-top:8px}
-
-/* FOOTER */
-.footer{text-align:center;padding:18px;color:#9fb3b0;margin-top:18px;border-top:1px solid rgba(255,255,255,0.02)}
-
-/* RESPONSIVE */
-@media (max-width:720px){
-  .hero{padding:18px;height:auto}
-  .nav{padding:8px}
-  .hero h1{font-size:28px}
+.calc-item input,
+.calc-item select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  color: #dff6ea;
 }
 
+.calc-result {
+  margin-top: 18px;
+  padding: 16px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
