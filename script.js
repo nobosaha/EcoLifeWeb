@@ -1,4 +1,4 @@
-#document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById("carbon-form");
     const resultDiv = document.getElementById("result");
@@ -12,23 +12,28 @@
         let meat = Number(document.getElementById("meat").value);
         let waste = Number(document.getElementById("waste").value);
 
-        // Convert to CO2 estimate
-        let transportCO2 = km * 0.21 * 365;
-        let electricityCO2 = electricity * 0.92 * 12;
-        let meatCO2 = meat * 300;
-        let wasteCO2 = waste * 50 * 52;
+        // DAILY estimates
+        let dailyTransport = km * 0.21;              // per km
+        let dailyElectricity = (electricity * 0.92) / 30; // monthly → daily
+        let dailyMeat = meat * 300 / 7;              // weekly → daily
+        let dailyWaste = (waste * 50) / 7;           // weekly → daily
 
-        let total = transportCO2 + electricityCO2 + meatCO2 + wasteCO2;
+        let dailyTotal = dailyTransport + dailyElectricity + dailyMeat + dailyWaste;
+
+        // weekly / monthly / yearly
+        let weeklyTotal = dailyTotal * 7;
+        let monthlyTotal = dailyTotal * 30;
+        let yearlyTotal = dailyTotal * 365;
 
         // Display result
         resultDiv.style.display = "block";
         resultDiv.innerHTML = `
-            Estimated yearly CO₂ footprint:<br><br>
-            <strong>${total.toFixed(0)} kg CO₂ per year</strong>
-        `;
-    });
+            <h3>Your Carbon Footprint</h3>
 
-});
+            <p><strong>Daily:</strong> ${dailyTotal.toFixed(1)} kg CO₂</p>
+            <p><strong>Weekly:</strong> ${weeklyTotal.toFixed(1)} kg CO₂</p>
+            <p><strong>Monthly:</strong> ${monthlyTotal.toFixed(1)} kg CO₂</p>
+            <p><strong>Yearly:</strong> ${yearlyTo
 
 
 
