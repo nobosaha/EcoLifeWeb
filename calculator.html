@@ -20,33 +20,35 @@
 
 <section class="section calculator-section">
     <h2>Carbon Footprint Calculator</h2>
-    <p>Enter your lifestyle details below and estimate your carbon emissions.</p>
+    <p>Enter your lifestyle details to estimate your yearly CO₂ emissions.</p>
 
+    <!-- FORM -->
     <form id="carbon-form">
 
         <label>Daily Transportation (km):</label>
-        <input type="number" id="km" placeholder="Example: 10" required>
+        <input type="number" id="km" required>
 
-        <label>Electricity Usage (kWh/month):</label>
-        <input type="number" id="electricity" placeholder="Example: 150" required>
+        <label>Electricity Usage (kWh per month):</label>
+        <input type="number" id="electricity" required>
 
-        <label>Meat Consumption Per Week:</label>
-        <select id="meat">
+        <label>Meat Consumption per Week:</label>
+        <select id="meat" required>
             <option value="0">Never</option>
             <option value="1">1–3 times</option>
             <option value="2">4–6 times</option>
             <option value="3">Daily</option>
         </select>
 
-        <label>Waste Generated Per Week (kg):</label>
-        <input type="number" id="waste" placeholder="Example: 3" required>
+        <label>Waste Generated per Week (kg):</label>
+        <input type="number" id="waste" required>
 
-        <button type="submit" class="btn-primary">Calculate My Footprint</button>
+        <button type="submit" id="calc-btn" class="btn-primary">Calculate</button>
     </form>
 
     <div id="result" class="result-box"></div>
 </section>
 
+<!-- FIXED: JS at the bottom so it loads AFTER HTML -->
 <script src="script.js"></script>
 
 </body>
