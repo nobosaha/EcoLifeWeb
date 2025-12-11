@@ -1,1 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EcoLife Adventure</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="brand">EcoLife Adventure</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#sdgs">SDGs</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#play">Activities</a>
+      <a href="#pledge">Pledge</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <h1>EcoLife Adventure</h1>
+      <p class="lead">Small daily actions. Real global impact. Learn — Play — Change.</p>
+      <div class="hero-ctas">
+        <a class="btn primary" href="#quiz">Start Quiz</a>
+        <a class="btn ghost" href="#sdgs">See SDGs</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section id="about" class="card section">
+      <h2>About EcoLife Adventure</h2>
+      <p>This is a lightweight, free web app that encourages responsible daily habits through a short interactive quiz and small challenges. The platform focuses on behaviour change so individuals can reduce waste, save energy, and contribute to climate action.</p>
+    </section>
+
+    <section id="sdgs" class="card section">
+      <h2>Our Focused SDGs</h2>
+
+      <div class="sdg-grid">
+        <div class="sdg">
+          <div class="sdg-badge">12</div>
+          <h3>SDG 12 — Responsible Consumption & Production</h3>
+          <p><strong>How we help:</strong> the quiz and micro-challenges encourage less single-use plastics, careful purchasing, food waste reduction, and conscious reuse — all practical behaviours that reduce waste and resource use.</p>
+          <p><strong>Concrete features:</strong> quiz questions, daily challenges, improvement tips, and the pledge board to reinforce behaviour.</p>
+        </div>
+
+        <div class="sdg">
+          <div class="sdg-badge">13</div>
+          <h3>SDG 13 — Climate Action</h3>
+          <p><strong>How we help:</strong> we teach small, climate-positive actions (walk instead of short drive, reduce electricity use, plant-based meals). When many people adopt these, emissions fall.</p>
+          <p><strong>Concrete features:</strong> carbon-aware tips in results, suggested transport/energy behaviours, and repeatable micro-challenges.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz" class="card section">
+      <h2>Quick 5-Question Quiz</h2>
+      <div id="question-area"></div>
+
+      <div class="quiz-footer">
+        <button id="next-btn" class="btn primary">Start</button>
+        <div class="score-box">
+          <div class="progress-wrap">
+            <div class="progress"><div id="progress"></div></div>
+          </div>
+          <div id="score">0%</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="play" class="card section">
+      <h2>Activities & Micro-Challenges</h2>
+      <div class="play-grid">
+        <div class="play-card">
+          <h3>Daily Micro-Challenge</h3>
+          <p>Get a single small eco task right now — each completed task adds to your good habits.</p>
+          <button id="generate-challenge" class="btn">Get a challenge</button>
+          <div id="challenge-output" class="muted"></div>
+        </div>
+
+        <div class="play-card">
+          <h3>Pledge Board</h3>
+          <p>Write a short pledge and show others your commitment.</p>
+          <input id="pledge-input" placeholder="I pledge to..." />
+          <button id="pledge-btn" class="btn">Pledge</button>
+          <div id="pledge-list" class="pledge-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pledge" class="card section">
+      <h2>Why pledges matter</h2>
+      <p>Public pledges increase the chance of follow-through. Use your pledge to push yourself — and invite friends to join.</p>
+      <ul>
+        <li>Use a reusable bottle</li>
+        <li>Unplug chargers when not in use</li>
+        <li>Have one plant-based meal</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© EcoLife Adventure — UN IT-Club Workshop</div>
+    <div class="foot-small">Built for awareness: SDG 12 &amp; SDG 13</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
