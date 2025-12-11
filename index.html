@@ -1,167 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EcoLife Adventure</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>EcoLife Adventure</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="brand">EcoLife Adventure</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#sdgs">SDGs</a>
-      <a href="#calculator">Calculator</a>
-      <a href="#quiz">Quiz</a>
-      <a href="#play">Activities</a>
-      <a href="#pledge">Pledge</a>
+<nav class="nav">
+    <div class="nav-left">EcoLife Adventure</div>
+    <div class="nav-right">
+        <a href="index.html">Home</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="#about">About</a>
+        <a href="#tips">Tips</a>
     </div>
-  </nav>
+</nav>
 
-  <header class="hero" id="top">
-    <div class="hero-inner">
-      <h1>EcoLife Adventure</h1>
-      <p class="lead">Small daily actions. Real global impact. Learn — Play — Change.</p>
-      <div class="hero-ctas">
-        <a class="btn primary" href="#calculator">Carbon Calculator</a>
-        <a class="btn ghost" href="#quiz">Start Quiz</a>
-      </div>
+<section id="hero" class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Welcome to EcoLife Adventure</h1>
+        <p class="hero-sub">Track your impact. Reduce waste. Empower the planet.</p>
     </div>
-  </header>
+</section>
 
-  <main class="main">
+<section id="about" class="section">
+    <h2>About This Project</h2>
+    <p>
+        EcoLife Adventure helps people learn how to live sustainably by understanding
+        how their daily choices influence the planet. The website combines awareness,
+        real-time calculation tools, and improvement strategies.
+    </p>
+</section>
 
-    <!-- ABOUT -->
-    <section id="about" class="card section">
-      <h2>About EcoLife Adventure</h2>
-      <p>This website helps individuals make sustainable choices by learning, taking micro-actions, and calculating their environmental impact. Our tools estimate daily carbon footprint so users can understand how their lifestyle influences the climate.</p>
-    </section>
+<section id="tips" class="section">
+    <h2>Tips for a Greener Life</h2>
+    <ul>
+        <li>Use public transport or walk for short trips.</li>
+        <li>Reduce food waste and choose plant-based meals more often.</li>
+        <li>Turn off unused lights and appliances.</li>
+        <li>Avoid buying unnecessary items.</li>
+    </ul>
+</section>
 
-    <!-- SDGS -->
-    <section id="sdgs" class="card section">
-      <h2>Our Focused SDGs</h2>
+<footer class="footer">
+    EcoLife Adventure © 2025
+</footer>
 
-      <div class="sdg-grid">
-        <div class="sdg">
-          <div class="sdg-badge">12</div>
-          <h3>SDG 12 — Responsible Consumption & Production</h3>
-          <p>We help users track waste, avoid overconsumption, and adopt daily responsible habits. The calculator shows how waste and resource use affect emissions.</p>
-        </div>
-
-        <div class="sdg">
-          <div class="sdg-badge">13</div>
-          <h3>SDG 13 — Climate Action</h3>
-          <p>Our carbon calculator measures your daily footprint from electricity, transport, food, and waste so you can reduce emissions effectively.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CARBON FOOTPRINT CALCULATOR -->
-    <section id="calculator" class="card section">
-      <h2>Carbon Footprint Calculator</h2>
-
-      <p class="muted">Enter your estimated daily usage below:</p>
-
-      <div class="calc-grid">
-
-        <div class="calc-item">
-          <label>Electricity (kWh/day)</label>
-          <input id="electricity" type="number" placeholder="e.g. 3" />
-        </div>
-
-        <div class="calc-item">
-          <label>LPG / Cooking Gas (kg/day)</label>
-          <input id="lpg" type="number" placeholder="e.g. 0.2" />
-        </div>
-
-        <div class="calc-item">
-          <label>Water Used (liters/day)</label>
-          <input id="water" type="number" placeholder="e.g. 100" />
-        </div>
-
-        <div class="calc-item">
-          <label>Waste Generated (kg/day)</label>
-          <input id="waste" type="number" placeholder="e.g. 0.5" />
-        </div>
-
-        <div class="calc-item">
-          <label>Transport Method</label>
-          <select id="transport">
-            <option value="0">Walk / Cycle</option>
-            <option value="1.2">Public Transport (bus/train)</option>
-            <option value="2.5">Motorbike</option>
-            <option value="4">Car</option>
-          </select>
-        </div>
-
-        <div class="calc-item">
-          <label>Food Choice</label>
-          <select id="food">
-            <option value="1">Vegetarian</option>
-            <option value="2">Mixed</option>
-            <option value="3.5">High Meat</option>
-          </select>
-        </div>
-
-      </div>
-
-      <button id="calc-btn" class="btn primary" style="margin-top:16px">Calculate</button>
-
-      <div id="calc-result" class="calc-result"></div>
-    </section>
-
-    <!-- QUIZ -->
-    <section id="quiz" class="card section">
-      <h2>Quick 5-Question Quiz</h2>
-      <div id="question-area"></div>
-
-      <div class="quiz-footer">
-        <button id="next-btn" class="btn primary">Start</button>
-        <div class="score-box">
-          <div class="progress-wrap">
-            <div class="progress"><div id="progress"></div></div>
-          </div>
-          <div id="score">0%</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACTIVITIES -->
-    <section id="play" class="card section">
-      <h2>Activities & Micro-Challenges</h2>
-      <div class="play-grid">
-        <div class="play-card">
-          <h3>Daily Micro-Challenge</h3>
-          <button id="generate-challenge" class="btn">Get a challenge</button>
-          <div id="challenge-output" class="muted"></div>
-        </div>
-
-        <div class="play-card">
-          <h3>Pledge Board</h3>
-          <input id="pledge-input" placeholder="I pledge to..." />
-          <button id="pledge-btn" class="btn">Pledge</button>
-          <div id="pledge-list" class="pledge-list"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PLEDGE -->
-    <section id="pledge" class="card section">
-      <h2>Why pledges matter</h2>
-      <p>Making a public pledge increases the likelihood of following through. Use this to motivate yourself and others.</p>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div>© EcoLife Adventure — UN IT-Club Workshop</div>
-    <div class="foot-small">Built for SDG 12 & SDG 13</div>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
-
 
