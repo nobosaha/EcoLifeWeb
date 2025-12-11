@@ -1,36 +1,125 @@
-/* Existing styles unchanged above */
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ---------------------
-   Carbon Calculator
----------------------- */
-
-.calc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
-  margin-top: 10px;
+:root {
+    --dark: #05070d;
+    --dark2: #0c111c;
+    --neon: #39ff7a;
+    --text: #d7fbe8;
 }
 
-.calc-item label {
-  display: block;
-  margin-bottom: 6px;
-  color: #c8ffe0;
+/* Background */
+body {
+    background: linear-gradient(180deg, var(--dark), var(--dark2));
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    padding-top: 70px;
 }
 
-.calc-item input,
-.calc-item select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.05);
-  color: #dff6ea;
+/* Navigation */
+.nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 26px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    z-index: 100;
 }
 
-.calc-result {
-  margin-top: 18px;
-  padding: 16px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.05);
+.nav-left {
+    color: var(--neon);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-right a {
+    margin-left: 14px;
+    color: var(--text);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.nav-right a:hover {
+    color: var(--neon);
+}
+
+/* Hero Section */
+#hero {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-title {
+    color: var(--neon);
+    font-size: 2.4rem;
+}
+
+.hero-sub {
+    margin-top: 6px;
+    color: #b8d6c8;
+}
+
+/* Sections */
+.section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 26px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(57,255,122,0.1);
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+input, select {
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.07);
+    color: var(--text);
+    border-radius: 8px;
+}
+
+button {
+    padding: 12px;
+    background: var(--neon);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+/* Result Box */
+.result-box {
+    margin-top: 20px;
+    padding: 18px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+    font-size: 1.1rem;
+    color: var(--neon);
+    display: none;
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #889993;
 }
