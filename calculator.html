@@ -1,1 +1,53 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-left">EcoLife Adventure</div>
+    <div class="nav-right">
+        <a href="index.html">Home</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#tips">Tips</a>
+    </div>
+</nav>
+
+<section class="section calculator-section">
+    <h2>Carbon Footprint Calculator</h2>
+    <p>Enter your lifestyle details below and estimate your carbon emissions.</p>
+
+    <form id="carbon-form">
+
+        <label>Daily Transportation (km):</label>
+        <input type="number" id="km" placeholder="Example: 10" required>
+
+        <label>Electricity Usage (kWh/month):</label>
+        <input type="number" id="electricity" placeholder="Example: 150" required>
+
+        <label>Meat Consumption Per Week:</label>
+        <select id="meat">
+            <option value="0">Never</option>
+            <option value="1">1–3 times</option>
+            <option value="2">4–6 times</option>
+            <option value="3">Daily</option>
+        </select>
+
+        <label>Waste Generated Per Week (kg):</label>
+        <input type="number" id="waste" placeholder="Example: 3" required>
+
+        <button type="submit" class="btn-primary">Calculate My Footprint</button>
+    </form>
+
+    <div id="result" class="result-box"></div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
