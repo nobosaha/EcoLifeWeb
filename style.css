@@ -129,7 +129,7 @@ button:hover {
     justify-content: space-between;
     gap: 30px;
     padding: 50px;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 20px auto;
 }
 
@@ -142,11 +142,11 @@ button:hover {
     box-shadow: 0 0 15px #00ff9a, 0 0 25px #00ff9a inset;
     color: #caffea;
     font-size: 1.3rem;
-    line-height: 1.2;
+    line-height: 1.0;
     margin-top: 40px;
         /* Size Controls */
     max-width: 1000px;     /* CHANGE this to make it narrower/wider */
-    min-height: 50px;    /* minimum height */
+    min-height: 500px;    /* minimum height */
     margin: 20px auto;
 }
 /* BOX STYLE */
