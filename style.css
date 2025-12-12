@@ -145,8 +145,8 @@ button:hover {
     line-height: 1.2;
     margin-top: 40px;
         /* Size Controls */
-    max-width: 200px;     /* CHANGE this to make it narrower/wider */
-    min-height: 200px;    /* minimum height */
+    max-width: 800px;     /* CHANGE this to make it narrower/wider */
+    min-height: 500px;    /* minimum height */
 }
 /* BOX STYLE */
 .sdg-box {
