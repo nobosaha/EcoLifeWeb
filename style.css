@@ -129,9 +129,11 @@ button:hover {
     justify-content: space-between;
     gap: 30px;
     padding: 50px;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: auto;
 }
+
+/* GENERAL DIRECTIVES BOX */
 .sdg-box {
     background: rgba(0, 255, 150, 0.05);
     padding: 25px;
