@@ -127,31 +127,41 @@ button:hover {
 .sdg-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
-    padding: 40px;
+    gap: 30px;
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
 }
 
+/* BOX STYLE */
 .sdg-box {
     flex: 1;
-    background: #f0f4f9;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    min-height: 300px; /* makes it look like a square/box */
+    background: ##000000; /* BOX COLOR — change this */
+    border: 2px solid #33ff66; /* NEON BORDER — optional */
+    border-radius: 18px;
+    padding: 35px; /* Bigger padding */
+    box-shadow: 0 0 15px rgba(51, 255, 102, 0.5); /* Neon glow effect */
+    min-height: 420px; /* Bigger box height */
     transition: transform 0.2s ease;
 }
 
+/* HOVER EFFECT */
 .sdg-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(51, 255, 102, 0.8);
 }
 
+/* TITLE STYLE */
 .sdg-box h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    color: #2b4b72;
+    margin-bottom: 20px;
+    font-size: 30px; /* bigger text */
+    color: #33ff66; /* title color — change this */
+    font-weight: 800;
 }
 
+/* PARAGRAPH TEXT */
 .sdg-box p {
-    line-height: 1.6;
-    font-size: 16px;
+    line-height: 1.8;
+    font-size: 20px; /* bigger text */
+    color: 	#808080; /* paragraph text color — change this */
 }
