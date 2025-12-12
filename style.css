@@ -124,16 +124,18 @@ button:hover {
     color: #889993;
 }
 
+/* SDG SECTION — FIXED & CENTERED */
 .sdg-container {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 50px;
-    max-width: 0px;
-    margin: 20px auto;
+    justify-content: center;     /* Perfect center alignment */
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1100px;           /* Correct width */
+    margin: 40px auto;           /* Center full container */
 }
 
-/* GENERAL DIRECTIVES BOX */
+/* Neon SDG BOX */
 .sdg-box {
     background: rgba(0, 255, 150, 0.05);
     padding: 25px;
@@ -141,49 +143,33 @@ button:hover {
     border: 2px solid #00ff9a;
     box-shadow: 0 0 15px #00ff9a, 0 0 25px #00ff9a inset;
     color: #caffea;
-    font-size: 1.3rem;
+
+    width: 500px;               /* Same width for both boxes */
+    min-height: 220px;          /* Balanced height */
+
+    margin: 0 auto;
+
+    font-size: 1.2rem;
     line-height: 1.6;
 
-    /* Size Controls */
-    max-width: 500px;     /* CHANGE this to make it narrower/wider */
-    min-height: 200px;    /* minimum height */
-    /* height: 250px; */  /* Use this ONLY if you want a fixed height */
-
-    margin: 20px auto;
+    transition: 0.2s ease;
 }
 
-
-/* BOX STYLE */
-.sdg-box {
-    background: rgba(0, 255, 150, 0.05);
-    padding: 25px;
-    border-radius: 12px;
-    border: 2px solid #00ff9a;
-    box-shadow: 0 0 15px #00ff9a, 0 0 25px #00ff9a inset;
-    color: #caffea;
-    font-size: 1.3rem;
-    line-height: 1.6;
-    margin-top: 40px;
-}
-
-
-/* HOVER EFFECT */
 .sdg-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 25px rgba(51, 255, 102, 0.8);
 }
 
-/* TITLE STYLE */
 .sdg-box h2 {
     margin-bottom: 20px;
-    font-size: 30px; /* bigger text */
-    color: #33ff66; /* title color — change this */
+    font-size: 30px;
+    color: #33ff66;
     font-weight: 800;
 }
 
-/* PARAGRAPH TEXT */
 .sdg-box p {
     line-height: 1.8;
-    font-size: 20px; /* bigger text */
-    color: 	#808080; /* paragraph text color — change this */
+    font-size: 20px;
+    color: #aaaaaa;
 }
+
