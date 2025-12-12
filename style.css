@@ -127,9 +127,9 @@ button:hover {
 .sdg-container {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
+    gap: 10px;
     padding: 50px;
-    max-width: 800px;
+    max-width: 0px;
     margin: 20px auto;
 }
 
@@ -145,8 +145,8 @@ button:hover {
     line-height: 1.0;
     margin-top: 40px;
         /* Size Controls */
-    max-width: 1000px;     /* CHANGE this to make it narrower/wider */
-    min-height: 500px;    /* minimum height */
+    max-width: 0px;     /* CHANGE this to make it narrower/wider */
+    min-height: 0px;    /* minimum height */
     margin: 20px auto;
 }
 /* BOX STYLE */
