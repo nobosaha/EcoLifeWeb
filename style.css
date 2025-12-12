@@ -123,3 +123,35 @@ button:hover {
     text-align: center;
     color: #889993;
 }
+
+.sdg-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 40px;
+}
+
+.sdg-box {
+    flex: 1;
+    background: #f0f4f9;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    min-height: 300px; /* makes it look like a square/box */
+    transition: transform 0.2s ease;
+}
+
+.sdg-box:hover {
+    transform: translateY(-5px);
+}
+
+.sdg-box h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #2b4b72;
+}
+
+.sdg-box p {
+    line-height: 1.6;
+    font-size: 16px;
+}
