@@ -141,7 +141,7 @@ button:hover {
     border-radius: 18px;
     padding: 35px; /* Bigger padding */
     box-shadow: 0 0 15px rgba(51, 255, 102, 0.5); /* Neon glow effect */
-    min-height: 420px; /* Bigger box height */
+    min-height: 500px; /* Bigger box height */
     transition: transform 0.2s ease;
 }
 
